@@ -1,11 +1,36 @@
 'use strict';
 
+/*Each Location
 var pike = {
   customerMin: 23,
   customerMax: 65,
   avg: 6.3,
   hourlyCustomers: function(){
     return Math.floor(Math.random() * (pike.customerMax - pike.customerMin)) + pike.customerMin;
+  },
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+}*/
+
+
+var pike = {
+  minCustomers: 23,
+  maxCustomers: 65,
+  avg: 6.3,
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log('hourly sales:', salesAmounts[i]);
+      console.log('total hourly sales:', totalHourlySales);
+    };
+    return[totalHourlySales, salesAmounts];
   }
 };
 
@@ -45,16 +70,13 @@ var alki = {
   }
 };
 
+var locations = [pike, seaTac, seaCenter, capHill, alki];
 
 
 
 
 
 /*
-var riker = {
-  hobbies: ['drinking', 'music', 'the gym', 'learning'],
-  age: 34,
-  profession: 'code newbie',
   details: function() {
     return 'Riker likes ' + riker.hobbies[1] + ' and ' + riker.hobbies[2] + ', is ' + riker.age + ' years\' old, and is a ' + riker.profession + '.';
   }
@@ -62,7 +84,7 @@ var riker = {
 
 function domStuff(){
   var container = document.createElement('div');
-  container.innerHTML = '<p>' + riker.details() + '</p>';
+  container.innerHTML = '<p>' + pike.hourlySales() + '</p>';
 
   document.body.appendChild(container);
 
