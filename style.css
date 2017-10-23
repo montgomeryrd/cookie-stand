@@ -1,9 +1,18 @@
+header {
+  height: 200px;
+}
+
 .salmon {
-
+  position: absolute;
+  margin-top: 280px;
+  margin-left: 800px;
 }
 
+/*
 .background {
-    display: block;
-    width: 900px;
-    text-align: center;
+  display: block;
+  margin: 30px auto;
+  margin-bottom: 20px;
+  width: 1500px;
 }
+*/
