@@ -1,17 +1,6 @@
 'use strict';
 
-/*Each Location
-var pike = {
-  customerMin: 23,
-  customerMax: 65,
-  avg: 6.3,
-  hourlyCustomers: function(){
-    return Math.floor(Math.random() * (pike.customerMax - pike.customerMin)) + pike.customerMin;
-  },
-  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
-}*/
-
-
+//pike location
 var pike = {
   minCustomers: 23,
   maxCustomers: 65,
@@ -27,73 +16,132 @@ var pike = {
       var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
       salesAmounts.push(Math.ceil(hourlyCustomers * avg));
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
-      console.log('hourly sales:', salesAmounts[i]);
-      console.log('total hourly sales:', totalHourlySales);
+      console.log(salesAmounts[i], 'cookies');
     };
-    return[totalHourlySales, salesAmounts];
+    return ['Total Sales: ' + totalHourlySales];
   }
 };
 
+pike.hourlySales();
+
+//seaTac location
 var seaTac = {
-  customerMin: 3,
-  customerMax: 24,
+  minCustomers: 3,
+  maxCustomers: 24,
   avg: 1.2,
-  hourlyCustomers: function(){
-    return Math.floor(Math.random() * (seaTac.customerMax - seaTac.customerMin)) + seaTac.customerMin;
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return ['Total Sales: ' + totalHourlySales];
   }
 };
 
+seaTac.hourlySales();
+
+//seaCenter location
 var seaCenter = {
-  customerMin: 11,
-  customerMax: 38,
+  minCustomers: 11,
+  maxCustomers: 38,
   avg: 3.7,
-  hourlyCustomers: function(){
-    return Math.floor(Math.random() * (seaCenter.customerMax - seaCenter.customerMin)) + seaCenter.customerMin;
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return ['Total Sales: ' + totalHourlySales];
   }
 };
 
+seaCenter.hourlySales();
+
+//capHill location
 var capHill = {
-  customerMin: 20,
-  customerMax: 38,
+  minCustomers: 20,
+  maxCustomers: 38,
   avg: 2.3,
-  hourlyCustomers: function(){
-    return Math.floor(Math.random() * (capHill.customerMax - pike.customerMin)) + pike.customerMin;
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return ['Total Sales: ' + totalHourlySales];
   }
 };
 
+capHill.hourlySales();
+
+//Alki location
 var alki = {
-  customerMin: 2,
-  customerMax: 16,
+  minCustomers: 2,
+  maxCustomers: 16,
   avg: 4.6,
-  hourlyCustomers: function(){
-    return Math.floor(Math.random() * (alki.customerMax - alki.customerMin)) + alki.customerMin;
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return ['Total Sales: ' + totalHourlySales];
   }
 };
 
-var locations = [pike, seaTac, seaCenter, capHill, alki];
+alki.hourlySales();
 
 
-
-
-
-/*
-  details: function() {
-    return 'Riker likes ' + riker.hobbies[1] + ' and ' + riker.hobbies[2] + ', is ' + riker.age + ' years\' old, and is a ' + riker.profession + '.';
+//Build into an Unordered list
+var build = function(){
+  for(var i = 0 ; i < salesAmounts.length ; i++) {
+    var eachSale = [];
+    var salesTotal;
+    salesAmounts[i].hourlySales();
+    var storeSales = doc.createElement('ul');
+    for(var j = 0 ; j < salesArray[i].salesAmounts.length ; j++) {
+      eachSale.push('<li>' + salesAmounts[i].hoursOperation[j] + ': ' + salesArray[i].eachSale[j] + '</li>');
+    }
   }
-}
+};
+
 
 function domStuff(){
-  var container = document.createElement('div');
-  container.innerHTML = '<p>' + pike.hourlySales() + '</p>';
-
-  document.body.appendChild(container);
-
   var list = document.createElement('ul');
   var listArr = [];
 
   //for loop transfers riker's hobbies into list elements, but not yet into the ul.
-  for(var i = 0 ; i < riker.hobbies.length ; i++) {
-    listArr.push('<li>' + riker.hobbies[i] + '</li>');
+  for(var j = 0 ; j < this.salesAmounts.length ; j++) {
+    listArr.push('<li>' + this.salesAmounts[j] + '</li>');
   }
 
   var fullList = listArr.join('');
@@ -103,4 +151,3 @@ function domStuff(){
 }
 
 domStuff();
-*/
