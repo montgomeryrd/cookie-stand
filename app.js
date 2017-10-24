@@ -18,7 +18,7 @@ var pike = {
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
       console.log(salesAmounts[i], 'cookies');
     };
-    return ['Total Sales: ' + totalHourlySales];
+    return [salesAmounts, totalHourlySales];
   }
 };
 
@@ -42,7 +42,7 @@ var seaTac = {
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
       console.log(salesAmounts[i], 'cookies');
     };
-    return ['Total Sales: ' + totalHourlySales];
+    return [salesAmounts, totalHourlySales];
   }
 };
 
@@ -66,7 +66,7 @@ var seaCenter = {
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
       console.log(salesAmounts[i], 'cookies');
     };
-    return ['Total Sales: ' + totalHourlySales];
+    return [salesAmounts, totalHourlySales];
   }
 };
 
@@ -90,7 +90,7 @@ var capHill = {
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
       console.log(salesAmounts[i], 'cookies');
     };
-    return ['Total Sales: ' + totalHourlySales];
+    return [salesAmounts, totalHourlySales];
   }
 };
 
@@ -114,40 +114,8 @@ var alki = {
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
       console.log(salesAmounts[i], 'cookies');
     };
-    return ['Total Sales: ' + totalHourlySales];
+    return [salesAmounts, totalHourlySales];
   }
 };
 
 alki.hourlySales();
-
-
-//Build into an Unordered list
-var build = function(){
-  for(var i = 0 ; i < salesAmounts.length ; i++) {
-    var eachSale = [];
-    var salesTotal;
-    salesAmounts[i].hourlySales();
-    var storeSales = doc.createElement('ul');
-    for(var j = 0 ; j < salesArray[i].salesAmounts.length ; j++) {
-      eachSale.push('<li>' + salesAmounts[i].hoursOperation[j] + ': ' + salesArray[i].eachSale[j] + '</li>');
-    }
-  }
-};
-
-
-function domStuff(){
-  var list = document.createElement('ul');
-  var listArr = [];
-
-  //for loop transfers riker's hobbies into list elements, but not yet into the ul.
-  for(var j = 0 ; j < this.salesAmounts.length ; j++) {
-    listArr.push('<li>' + this.salesAmounts[j] + '</li>');
-  }
-
-  var fullList = listArr.join('');
-  list.innerHTML = fullList;
-
-  document.body.appendChild(list);
-}
-
-domStuff();

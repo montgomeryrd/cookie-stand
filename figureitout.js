@@ -27,7 +27,7 @@ var alki = {
 
 function domStuff(){
   var container = document.createElement('div');
-  container.innerHTML = '<p>' + alki.details() + '</p>';
+  container.innerHTML = '<p>' + alki.details(); + '</p>';
 
   document.body.appendChild(container);
 
