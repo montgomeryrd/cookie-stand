@@ -1,5 +1,102 @@
 'use strict';
 
+//pike location
+var pike = {
+  minCustomers: 23,
+  maxCustomers: 65,
+  avg: 6.3,
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return [salesAmounts, totalHourlySales];
+  }
+};
+
+pike.hourlySales();
+
+//seaTac location
+var seaTac = {
+  minCustomers: 3,
+  maxCustomers: 24,
+  avg: 1.2,
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return [salesAmounts, totalHourlySales];
+  }
+};
+
+seaTac.hourlySales();
+
+//seaCenter location
+var seaCenter = {
+  minCustomers: 11,
+  maxCustomers: 38,
+  avg: 3.7,
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return [salesAmounts, totalHourlySales];
+  }
+};
+
+seaCenter.hourlySales();
+
+//capHill location
+var capHill = {
+  minCustomers: 20,
+  maxCustomers: 38,
+  avg: 2.3,
+  hoursOperation: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'],
+  hourlySales: function(){
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var salesAmounts = [];
+    var totalHourlySales = 0;
+    for(var i = 0 ; i < this.hoursOperation.length ; i++) {
+      var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(salesAmounts[i], 'cookies');
+    };
+    return [salesAmounts, totalHourlySales];
+  }
+};
+
+capHill.hourlySales();
+
+//Alki location
 var alki = {
   minCustomers: 2,
   maxCustomers: 16,
@@ -17,32 +114,17 @@ var alki = {
       totalHourlySales += (Math.ceil(hourlyCustomers * avg));
       console.log(salesAmounts[i], 'cookies');
     };
-    return ['Total Sales: ' + totalHourlySales];
-  },
-  details: function() {
-    this.hourlySales();
-    return 'Total cookies sold: ' + totalHourlySales;
+    return [salesAmounts, totalHourlySales];
   }
 };
 
-function domStuff(){
-  var container = document.createElement('div');
-  container.innerHTML = '<p>' + alki.details(); + '</p>';
+alki.hourlySales();
 
-  document.body.appendChild(container);
+//append to html
+var newRow;
 
-  var list = document.createElement('ul');
-  var listArr = [];
-
-  //for loop transfers riker's hobbies into list elements, but not yet into the ul.
-  for(var i = 0 ; i < alki.salesAmounts.length ; i++) {
-    listArr.push('<li>' + alki.salesAmounts[i] + '</li>');
-  }
-
-  var fullList = listArr.join('');
-  list.innerHTML = fullList;
-
-  document.body.appendChild(list);
+for (var j = 0 ; j < data.length ; j++){
+  newRow = document.createElement('tr');
+  newRow.innerHTML = data[j];
+  table.appendChild(newRow);
 }
-
-domStuff();
