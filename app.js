@@ -15,9 +15,7 @@ function Stores(minCustomers, maxCustomers, avg, hoursOfOperation, salesAmounts,
   this.hoursOfOperation = hoursOfOperation;
   this.salesAmounts = salesAmounts;
   this.totalSales = totalSales;
-}
-
-function hourlySales(){
+  function hourlySales(){
   for(var i = 0 ; i < hoursOfOperation.length ; i++) {
     var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
     salesAmounts.push(Math.ceil(hourlyCustomers * avg));
@@ -31,22 +29,21 @@ Stores.prototype.hourlySales = function() {
   alert('hi');
 };
 
-
-//new locations
+//store locations
 var pike = new Stores(23, 65, 6.3, hoursOfOperation, salesAmounts, totalSales);
 var seaTac = new Stores(3, 24, 1.2, hoursOfOperation, salesAmounts, totalSales);
 var seaCenter = new Stores(11, 38, 3.7, hoursOfOperation, salesAmounts, totalSales);
 var capHill = new Stores(20, 38, 2.3, hoursOfOperation, salesAmounts, totalSales);
 var alki = new Stores(2, 16, 4.6, hoursOfOperation, salesAmounts, totalSales);
 
-//Push new objects into the cars array
+//Push new objects into the stores array
 stores.push(pike);
 stores.push(seaTac);
 stores.push(seaCenter);
 stores.push(capHill);
 stores.push(alki);
 
-//push car objects into data array
+//push store objects into data array
 for (var i = 0 ; i < stores.length ; i++){
   data.push(
     '<td>' + stores[i].minCustomers + '</td>' +
