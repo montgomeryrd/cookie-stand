@@ -9,7 +9,7 @@ function Stores(name, minCustomers, maxCustomers, avg){
   this.hoursOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 };
 
-//My function that calculates projected sales per hour and total sales
+//My method that calculates projected sales per hour and total sales
 Stores.prototype.hourlySales = function(){
   this.salesAmounts = [];
   this.totalHourlySales = 0;
@@ -27,11 +27,11 @@ Stores.prototype.hourlySales = function(){
 };
 
 var table = document.getElementById('table_content');
-var data = [];
 
-//My function to push data into data array
-Stores.prototype.rows = function() {
-  for (var i = 0 ; i < this.salesAmounts.length ; i++){
+//My method to push data into data array
+Stores.prototype.rows = function(){
+  var data = [];
+  for (var i = 0 ; i < 17 ; i++){
     data.push('<th>' + this.name + '</th>' +
     '<td>' + this.salesAmounts[0] + '</td>' +
     '<td>' + this.salesAmounts[1] + '</td>' +
@@ -46,7 +46,8 @@ Stores.prototype.rows = function() {
     '<td>' + this.salesAmounts[10] + '</td>' +
     '<td>' + this.salesAmounts[11] + '</td>' +
     '<td>' + this.salesAmounts[12] + '</td>' +
-    '<td>' + this.salesAmounts[13] + '</td>');
+    '<td>' + this.salesAmounts[13] + '</td>' +
+    '<td>' + this.totalHourlySales + '</td>');
   }
 
   //append to html
@@ -80,7 +81,7 @@ var alki = new Stores('alki', 2, 16, 4.6);
 alki.hourlySales();
 alki.rows();
 
-//Push new objects into the stores array
+//Push new objects into the store array
 var store = [];
 
 store.push(pike);
