@@ -31,7 +31,7 @@ var table = document.getElementById('table_content');
 //My method to push data into data array
 Stores.prototype.rows = function(){
   var data = [];
-  for (var i = 0 ; i < 17 ; i++){
+  for (var i = 0 ; i < 1 ; i++){
     data.push('<th>' + this.name + '</th>' +
     '<td>' + this.salesAmounts[0] + '</td>' +
     '<td>' + this.salesAmounts[1] + '</td>' +

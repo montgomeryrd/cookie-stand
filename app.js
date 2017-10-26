@@ -1,54 +1,90 @@
 'use strict';
 
+//My sweet, sweet Variables
+var form = document.getElementById('store_location');
+var tableHead = document.getElementById('table_head');
 var table = document.getElementById('table_content');
 var data = [];
 var stores = [];
-var hoursOfOperation = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
-var salesAmounts = [];
-var totalSales = 0;
+var hoursOperation = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
-//This is my object constructor
-function Stores(minCustomers, maxCustomers, avg, hoursOfOperation, salesAmounts, totalSales){
+//My constructor function for new locations
+function Stores(name, minCustomers, maxCustomers, avg){
+  this.name = name;
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avg = avg;
-  this.hoursOfOperation = hoursOfOperation;
-  this.salesAmounts = salesAmounts;
-  this.totalSales = totalSales;
-  function hourlySales(){
-  for(var i = 0 ; i < hoursOfOperation.length ; i++) {
-    var hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
-    salesAmounts.push(Math.ceil(hourlyCustomers * avg));
-    totalHourlySales += (Math.ceil(hourlyCustomers * avg));
-    console.log(salesAmounts[i], 'cookies');
+  //My method that calculates projected sales per hour and total sales
+  Stores.prototype.hourlySales = function(){
+    this.salesAmounts = [];
+    this.totalHourlySales = 0;
+    var min = this.minCustomers;
+    var max = this.maxCustomers;
+    var avg = this.avg;
+    var hourlyCustomers;
+    for(var i = 0 ; i < hoursOperation.length ; i++) {
+      hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+      this.salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+      this.totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+      console.log(this.salesAmounts[i], 'cookies');
+    }
+    return [this.salesAmounts, this.totalHourlySales];
+    this.hourlySales();
+  };
+};
+
+//Stores the form fill
+function formData(event) { //event that we will trigger
+  event.preventDefault(); //don't refresh form
+
+  //event.target = Wherever it's fired from.
+  var name = event.target.name.value;
+  var minCustomers = event.target.minCustomers.value;
+  var maxCustomers = event.target.maxCustomers.value;
+  var avg = event.target.avg.value;
+
+  if(Number(minCustomers) < Number(maxCustomers)) {
+    data.push(new Stores(name, minCustomers, maxCustomers, avg));
+    console.log(stores);
+    createTable();
+    form.reset();
+  } else {
+    alert('Maximum Customers must be greater than Minimum Customers');
   }
-  return [salesAmounts, totalHourlySales];
 };
 
-Stores.prototype.hourlySales = function() {
-  alert('hi');
+//MY TABLE! Top Headers...
+var newRow = document.createElement('tr');
+var newTableHead = document.createElement('th');
+newRow.appendChild(newTableHead);
+
+for (var i = 0 ; i < hoursOperation.length ; i++) {
+  var newTableHead = document.createElement('th');
+  newTableHead.innerHTML = hoursOperation[i];
+  newRow.appendChild(newTableHead);
 };
 
-//store locations
-var pike = new Stores(23, 65, 6.3, hoursOfOperation, salesAmounts, totalSales);
-var seaTac = new Stores(3, 24, 1.2, hoursOfOperation, salesAmounts, totalSales);
-var seaCenter = new Stores(11, 38, 3.7, hoursOfOperation, salesAmounts, totalSales);
-var capHill = new Stores(20, 38, 2.3, hoursOfOperation, salesAmounts, totalSales);
-var alki = new Stores(2, 16, 4.6, hoursOfOperation, salesAmounts, totalSales);
+tableHead.appendChild(newRow);
 
-//Push new objects into the stores array
-stores.push(pike);
-stores.push(seaTac);
-stores.push(seaCenter);
-stores.push(capHill);
-stores.push(alki);
+//Create a Fuckin TABLE!
+function createTable() {
+  var row;
+  var info = [];
+  for(var i = 0 ; i < this.salesAmounts.length ; i++) {
+    row = document.createElement('tr');
+    row.innerHTML = '<td>' + this.salesAmounts[i] + '</td>';
+  }
 
-//push store objects into data array
-for (var i = 0 ; i < stores.length ; i++){
-  data.push(
-    '<td>' + stores[i].minCustomers + '</td>' +
-    '<td>' + stores[i].maxCustomers + '</td>' +
-    '<td>' + stores[i].avg + '</td>' +
-    '<td>' + stores[i].salesAmounts + '</td>'
-  );
+  table.appendChild(row);
 }
+
+form.addEventListener('submit', formData);
+
+//My method to push data into data array
+Stores.prototype.rows = function(){
+  var data = [];
+  for (var i = 0 ; i < this.salesAmounts[i] ; i++){
+    data.push('<th>' + this.name + '</th>' +
+    '<td>' + this.salesAmounts[0] + '</td>');
+  }
+};
