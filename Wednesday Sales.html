@@ -12,38 +12,51 @@
     <!-- Content Goes Here -->
     <form id="store_location">
       <fieldset>
-        <label for="location">Business Location:</label>
-        <input type="text" name="location" placeholder="Enter location of business" required>
+        <label for="name">Business Location:</label>
+        <input type="text" name="name" placeholder="Enter location of business" required>
       </fieldset>
       <fieldset>
-        <label for="last">last name:</label>
-        <input type="text" name="last" placeholder="Enter your Last name" required>
+        <label for="minCustomers">Location's minimum customers:</label>
+        <input type="text" name="minCustomers" placeholder="Enter minimum customers" required>
       </fieldset>
       <fieldset>
-        <label for="enrolled">Currently enrolled?</label>
-        <input type="checkbox" name="enrolled" value="enrolled">
+        <label for="maxCustomers">Location's maximum customers:</label>
+        <input type="text" name="maxCustomers" placeholder="Enter maximum customers" required>
       </fieldset>
       <fieldset>
-        <label for="future_classes">Interest in future courses?</label>
-        <input type="radio" name="future_classes" value="yes">yes
-        <input type="radio" name="future_classes" value="no">no
+        <label for="avg">Average number of cookies sold per customer:</label>
+        <input type="text" name="avg" placeholder="Enter average sales per customer" required>
       </fieldset>
-      <button id="submit-btn" type="submit">add student</button>
+
+      <button id="submit-btn" type="submit">add location</button>
     </form>
 
-    <section id="students">
-      <table>
-        <thead>
-          <th>first name</th>
-          <th>last name</th>
-          <th>enrolled</th>
-          <th>interested in future classes?</th>
-        </thead>
-        <tbody id="student_table">
-          <!-- Student table data goes here -->
-        </tbody>
-      </table>
-    </section>
+    <h1>Cookies Needed By Each Location Daily</h1>
+    <table id="shell">
+      <thead>
+        <th></th>
+        <th>6:00am</th>
+        <th>7:00am</th>
+        <th>8:00am</th>
+        <th>9:00am</th>
+        <th>10:00am</th>
+        <th>11:00am</th>
+        <th>12:00pm</th>
+        <th>1:00pm</th>
+        <th>2:00pm</th>
+        <th>3:00pm</th>
+        <th>4:00pm</th>
+        <th>5:00pm</th>
+        <th>6:00pm</th>
+        <th>7:00pm</th>
+        <th>Daily Location Total</th>
+      </thead>
+      <tbody id="table_content">
+
+      </tbody>
+    </table>
+
+
     <script src="Wednesday.js"></script>
   </body>
 
