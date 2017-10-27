@@ -30,7 +30,6 @@ Stores.prototype.hourlySales = function(){
     console.log(this.salesAmounts[i], 'cookies');
     console.log('Total Sales', this.totalHourlySales);
   }
-  //return [this.salesAmounts, this.totalHourlySales];
 
 };
 //Create a TABLE!
@@ -38,10 +37,7 @@ Stores.prototype.createTable = function() {
   var row = document.createElement('tr');
   var td = '<td>' + this.name + '</td>';
   for(var j = 0 ; j < this.salesAmounts.length ; j++) {
-    //td = document.createElement('td');
     td += '<td>' + this.salesAmounts[j] + '</td>';
-    //td.innerHTML = this.salesAmounts[j];
-    //row.appendChild(td);
   }
   td += '<td>' + this.totalHourlySales + '</td>';
   row.innerHTML = td;

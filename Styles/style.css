@@ -1,58 +1,63 @@
+/* top of Sales.html page */
 header {
-  height: 200px;
-}
-/*
-.salmon {
-  position: absolute;
-  margin-top: 280px;
-  margin-left: 800px;
+  margin-top: 150px;
 }
 
+.my_image {
+   display: block;
+   margin: 30px auto;
+   width: 300px;
+}
 
-.background {
+/* Form */
+#store_location {
   display: block;
+  text-align: center;
+  border-radius: 3px;
   margin: 30px auto;
-  margin-bottom: 20px;
-  width: 1500px;
-}
-
-*/
-h1 {
-  margin-top:50px;
-  margin-left:100px;
-  font-size: 40px;
-  font-family: helvetica;
-  font-weight: bold;
-}
-
-table {
-  margin-left: 100px;
-  margin-top: 50px;
-  border-style: solid;
-  border-width: 3px;
-  border-radius: 3px;
-}
-
-form {
-  border-radius: 3px;
-  margin-top: 100px;
-  margin-left: 100px;
 }
 
 input[type="text"]:focus {
   background: #000;
   color: #FFF;
-  }
+}
 
 button {
   background: #000;
   color: #FFF;
-  padding: 8px 18px;
-  margin-left: 600px;
+  text-align: center;
+  padding: 30px 100px;
+  margin-top: 20px;
   margin-bottom: 20px;
-  border-radius: 3px;
+  border-radius: 10px;
   border: none;
+  font-size: 50px;
   cursor: pointer;
+}
+
+/* My Table */
+h1 {
+  margin-top:50px;
+  text-align: center;
+  font-size: 40px;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+h2 {
+  margin-top:20px;
+  text-align: center;
+  font-size: 30px;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+table {
+  margin: auto;
+  margin-top: 50px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 3px;
 }
 
 th {
