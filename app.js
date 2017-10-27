@@ -4,8 +4,7 @@
 var form = document.getElementById('store_location');
 var tableHead = document.getElementById('table_head');
 var table = document.getElementById('table_content');
-var data = [];
-var stores = [];
+var store_locations = [];
 var hoursOperation = ['6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm'];
 
 //My constructor function for new locations
@@ -14,28 +13,54 @@ function Stores(name, minCustomers, maxCustomers, avg){
   this.minCustomers = minCustomers;
   this.maxCustomers = maxCustomers;
   this.avg = avg;
-  //My method that calculates projected sales per hour and total sales
-  Stores.prototype.hourlySales = function(){
-    this.salesAmounts = [];
-    this.totalHourlySales = 0;
-    var min = this.minCustomers;
-    var max = this.maxCustomers;
-    var avg = this.avg;
-    var hourlyCustomers;
-    for(var i = 0 ; i < hoursOperation.length ; i++) {
-      hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
-      this.salesAmounts.push(Math.ceil(hourlyCustomers * avg));
-      this.totalHourlySales += (Math.ceil(hourlyCustomers * avg));
-      console.log(this.salesAmounts[i], 'cookies');
-    }
-    return [this.salesAmounts, this.totalHourlySales];
-    this.hourlySales();
-  };
+  this.salesAmounts = [];
+  this.totalHourlySales = 0;
+}
+//My method that calculates projected sales per hour and total sales
+Stores.prototype.hourlySales = function(){
+  var min = this.minCustomers;
+  var max = this.maxCustomers;
+  var avg = this.avg;
+  var hourlyCustomers;
+
+  for(var i = 0 ; i < hoursOperation.length ; i++) {
+    hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
+    this.salesAmounts.push(Math.ceil(hourlyCustomers * avg));
+    this.totalHourlySales += (Math.ceil(hourlyCustomers * avg));
+    console.log(this.salesAmounts[i], 'cookies');
+    console.log('Total Sales', this.totalHourlySales);
+  }
+  //return [this.salesAmounts, this.totalHourlySales];
+
+};
+//Create a TABLE!
+Stores.prototype.createTable = function() {
+  var row = document.createElement('tr');
+  var td = '<td>' + this.name + '</td>';
+  for(var j = 0 ; j < this.salesAmounts.length ; j++) {
+    //td = document.createElement('td');
+    td += '<td>' + this.salesAmounts[j] + '</td>';
+    //td.innerHTML = this.salesAmounts[j];
+    //row.appendChild(td);
+  }
+  td += '<td>' + this.totalHourlySales + '</td>';
+  row.innerHTML = td;
+  console.log(row);
+  table.appendChild(row);
+
+  /*Total Sales per Hour at each Location... Needs work!!!
+  for(var i = 0 ; i < store_locations.length ; i++){
+    var hourlySales = store_locations.salesAmounts[i];
+    hourlySales += hourlySales;
+    console.log('Total per Hour:', hourlySales);
+  }*/
 };
 
-//Stores the form fill
+form.addEventListener('submit', formData);
+
+//This is my form function that stores the form fill
 function formData(event) { //event that we will trigger
-  event.preventDefault(); //don't refresh form
+  event.preventDefault(); //doesn't refresh form
 
   //event.target = Wherever it's fired from.
   var name = event.target.name.value;
@@ -44,9 +69,11 @@ function formData(event) { //event that we will trigger
   var avg = event.target.avg.value;
 
   if(Number(minCustomers) < Number(maxCustomers)) {
-    data.push(new Stores(name, minCustomers, maxCustomers, avg));
-    console.log(stores);
-    createTable();
+    var storeOne = new Stores(name, minCustomers, maxCustomers, avg);
+    storeOne.hourlySales();
+    console.log('store one:', storeOne);
+    store_locations.push(storeOne);
+    storeOne.createTable();
     form.reset();
   } else {
     alert('Maximum Customers must be greater than Minimum Customers');
@@ -54,37 +81,17 @@ function formData(event) { //event that we will trigger
 };
 
 //MY TABLE! Top Headers...
-var newRow = document.createElement('tr');
-var newTableHead = document.createElement('th');
-newRow.appendChild(newTableHead);
+function header(){
+  var newRow = document.createElement('tr');
 
-for (var i = 0 ; i < hoursOperation.length ; i++) {
-  var newTableHead = document.createElement('th');
-  newTableHead.innerHTML = hoursOperation[i];
-  newRow.appendChild(newTableHead);
+  newRow.innerHTML += '<th></th>';
+  for(var i = 0 ; i < hoursOperation.length ; i++) {
+    var newTableHead = document.createElement('th');
+    newTableHead.innerHTML += hoursOperation[i];
+    newRow.appendChild(newTableHead);
+  };
+  newRow.innerHTML += '<th>Daily Location Total</th>';
+  tableHead.appendChild(newRow);
 };
 
-tableHead.appendChild(newRow);
-
-//Create a Fuckin TABLE!
-function createTable() {
-  var row;
-  var info = [];
-  for(var i = 0 ; i < this.salesAmounts.length ; i++) {
-    row = document.createElement('tr');
-    row.innerHTML = '<td>' + this.salesAmounts[i] + '</td>';
-  }
-
-  table.appendChild(row);
-}
-
-form.addEventListener('submit', formData);
-
-//My method to push data into data array
-Stores.prototype.rows = function(){
-  var data = [];
-  for (var i = 0 ; i < this.salesAmounts[i] ; i++){
-    data.push('<th>' + this.name + '</th>' +
-    '<td>' + this.salesAmounts[0] + '</td>');
-  }
-};
+header();
