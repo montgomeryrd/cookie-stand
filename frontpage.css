@@ -1,0 +1,9 @@
+/* Front Page */
+
+body {
+  background: #444;
+}
+li {
+  display: inline-block;
+  float: left;
+}

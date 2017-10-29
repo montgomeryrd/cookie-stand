@@ -17,18 +17,21 @@ function Stores(name, minCustomers, maxCustomers, avg){
   this.totalHourlySales = 0;
 }
 //My method that calculates projected sales per hour and total sales
+
 Stores.prototype.hourlySales = function(){
-  var min = this.minCustomers;
-  var max = this.maxCustomers;
-  var avg = this.avg;
-  var hourlyCustomers;
+  console.log('outer min:', this.minCustomers);
+  console.log('outer max:', this.maxCustomers);
+  console.log('the avg:', this.avg);
 
   for(var i = 0 ; i < hoursOperation.length ; i++) {
-    hourlyCustomers = Math.floor(Math.random() * (max - min)) + min;
-    this.salesAmounts.push(Math.ceil(hourlyCustomers * avg));
-    this.totalHourlySales += (Math.ceil(hourlyCustomers * avg));
-    console.log(this.salesAmounts[i], 'cookies');
-    console.log('Total Sales', this.totalHourlySales);
+    var hourlyCustomers = Math.floor(Math.random() * (this.maxCustomers - this.minCustomers)) + this.minCustomers;
+    console.log('first hourly customers:', hourlyCustomers);
+    this.salesAmounts.push(Math.ceil(hourlyCustomers * this.avg));
+    console.log('second cookie amounts:', this.salesAmounts[i]);
+    this.totalHourlySales += (Math.ceil(hourlyCustomers * this.avg));
+
+    console.log(this.salesAmounts[i], 'third cookies');
+    console.log('fourth Total Sales', this.totalHourlySales);
   }
 
 };
