@@ -1,0 +1,18 @@
+/* Mission Statement */
+h3 {
+  margin-top: 50px;
+  text-align: center;
+  font-family: pompiere;
+  margin-left: 100px;
+  margin-right: 100px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  color: #006600;
+}
+
+p {
+  text-align:left;
+  font-family: arial;
+  font-size: 15px;
+  margin-bottom: 20px;
+}
