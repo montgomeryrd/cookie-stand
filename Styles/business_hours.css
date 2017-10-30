@@ -5,15 +5,42 @@ html {
 
 header {
   width: 960px;
-  margin: auto;
-  margin-top: 100px;
+  margin: 30px auto;
+  height: 120px;
 }
 
-header img {
-  float: right;
+.cloud {
+  position:absolute;
+  z-index: -1;
   width: 960px;
-  margin: -30px auto;
   display: block;
+  margin: auto;
+}
+
+/* Sales Link */
+section a img {
+  float:left;
+  transition: 350ms;
+  width: 100px;
+}
+
+section a img:hover {
+  float:left;
+  width: 150px;
+}
+
+/* nav links */
+.icons li a img {
+  margin-top: 30px;
+  transition: 350ms;
+  float: right;
+  display: inline-block;
+  width: 30px;
+  margin-left: 10px;
+}
+
+.icons li a img:hover {
+  width: 40px;
 }
 
 body {
@@ -26,13 +53,13 @@ main {
 }
 
 h1 {
+  padding: 30px;
   clear: both;
   text-align: center;
   font-family: homemade apple;
   font-weight: bold;
   font-size: 80px;
   color: #003300;
-  margin-bottom: 20px;
 }
 
 h2 {
