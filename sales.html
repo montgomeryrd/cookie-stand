@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+    <title>Pat's Sales Predictions</title>
+    <link rel="stylesheet" href="Styles/reset.css">
+    <link rel="stylesheet" href="Styles/style.css">
+  </head>
+
+  <body>
+    <header>
+      <img class="my_image" src="Images/fish.jpg" alt="Pat Salmon Logo">
+    </header>
+    <!-- Content Goes Here -->
+        <h1>Projected Sales per Hour by Location</h1>
+    <form id="store_location">
+      <fieldset>
+        <label for="name">Business Location:</label>
+        <input type="text" name="name" placeholder="Enter location of business" required>
+      </fieldset>
+      <fieldset>
+        <label for="minCustomers">Location's minimum customers:</label>
+        <input type="text" name="minCustomers" placeholder="Enter minimum customers" required>
+      </fieldset>
+      <fieldset>
+        <label for="maxCustomers">Location's maximum customers:</label>
+        <input type="text" name="maxCustomers" placeholder="Enter maximum customers" required>
+      </fieldset>
+      <fieldset>
+        <label for="avg">Average number of cookies sold per customer:</label>
+        <input type="text" name="avg" placeholder="Enter average sales per customer" required>
+      </fieldset>
+
+      <button id="submit-btn" type="submit">Add This Location</button>
+    </form>
+
+    <h2>Projected Cookie Sales Per Location Hourly</h2>
+
+    <table id="shell">
+      <thead id="table_head">
+
+      </thead>
+      <tbody id="table_content">
+
+      </tbody>
+    </table>
+
+    <footer>
+    </footer>
+    
+    <script src="app.js"></script>
+  </body>
+
+</html>

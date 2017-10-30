@@ -1,0 +1,90 @@
+/* Sales Page */
+header {
+  margin-top: 50px;
+  width: 100%;
+}
+
+body {
+  width: 100%;
+}
+
+.my_image {
+   display: block;
+   margin: 30px auto;
+   width: 300px;
+}
+
+/* Form */
+#store_location {
+  display: block;
+  text-align: center;
+  border-radius: 3px;
+  margin: 30px auto;
+}
+
+fieldset {
+  padding: 5px;
+  font-family: Arial;
+  font-size: 20px;
+}
+
+input[type="text"]:focus {
+  background: #444;
+  color: #FFF;
+  padding: 10px;
+}
+
+button {
+  background: #000;
+  color: #FFF;
+  text-align: center;
+  padding: 30px 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: none;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+/* My Table */
+h1 {
+  margin-top:50px;
+  text-align: center;
+  font-size: 40px;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+h2 {
+  margin-top:20px;
+  text-align: center;
+  font-size: 30px;
+  font-family: helvetica;
+  font-weight: bold;
+}
+
+table {
+  margin: auto;
+  margin-top: 30px;
+  border-style: solid;
+  border-width: 3px;
+  border-radius: 3px;
+  background: #eeccff;
+  color: #550080;
+}
+
+th {
+  background: #444;
+  color: #FFF;
+}
+
+td, th {
+  padding: 20px;
+  margin-left: 5px;
+  border: solid 1px #000;
+}
+
+footer {
+  height: 100px;
+}

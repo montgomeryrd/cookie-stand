@@ -1,0 +1,73 @@
+/* Front Page */
+
+body {
+  width: 100%;
+  background: #FFF;
+}
+
+header {
+  width: 960px;
+  margin: 30px auto;
+  height: 120px;
+}
+
+/* Sales Link */
+section a img {
+  float:left;
+  transition: 350ms;
+  width: 100px;
+}
+
+section a img:hover {
+  float:left;
+  width: 150px;
+}
+
+/* nav links */
+.icons li a img {
+  margin-top: 30px;
+  transition: 350ms;
+  float: right;
+  display: inline-block;
+  width: 30px;
+  margin-left: 10px;
+}
+
+.icons li a img:hover {
+  width: 40px;
+}
+
+/* Main Page */
+main {
+  width: 960px;
+  margin: 30px auto;
+}
+
+h1 {
+  text-align: center;
+  font-family: homemade apple;
+  font-weight: bold;
+  font-size: 80px;
+  color: #003300;
+}
+
+h2 {
+  text-align:center;
+  font-family: pompiere;
+  font-size: 20px;
+  margin-left: 150px;
+  margin-bottom: 50px;
+  color: #006600;
+}
+
+h3 {
+  position:;
+  padding:20px;
+  margin-top: 30px;
+  text-align: center;
+  font-family: pompiere;
+  margin-left: 80px;
+  margin-right: 80px;
+  font-size: 30px;
+  color: #006600;
+}

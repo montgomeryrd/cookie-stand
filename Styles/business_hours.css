@@ -1,0 +1,88 @@
+/* app styles */
+html {
+  width: 100%;
+}
+
+header {
+  width: 960px;
+  margin: auto;
+  margin-top: 100px;
+}
+
+header img {
+  float: right;
+  width: 960px;
+  margin: -30px auto;
+  display: block;
+}
+
+body {
+  width: 100%;
+}
+
+main {
+  width: 960px;
+  margin: auto;
+}
+
+h1 {
+  clear: both;
+  text-align: center;
+  font-family: homemade apple;
+  font-weight: bold;
+  font-size: 80px;
+  color: #003300;
+  margin-bottom: 20px;
+}
+
+h2 {
+  text-align:center;
+  font-family: pompiere;
+  font-size: 40px;
+  margin-left: 450px;
+  margin-bottom: 10px;
+  color: #006600;
+}
+
+h3 {
+  text-align:center;
+  font-family: pompiere;
+  font-size: 40px;
+  margin-left: 250px;
+  margin-bottom: 10px;
+  color: #006600;
+}
+
+h4 {
+  text-align:center;
+  font-family: pompiere;
+  font-size: 40px;
+  margin-left: 400px;
+  margin-bottom: 30px;
+  color: #006600;
+}
+
+h5 {
+  text-align:center;
+  font-family: pompiere;
+  font-size: 40px;
+  margin-left: 250px;
+  margin-bottom: 10px;
+  color: #006600;
+}
+
+p {
+  text-align:center;
+  font-family: arial;
+  font-size: 40px;
+  margin-left: 550px;
+  margin-bottom: 10px;
+  color: #006600;
+}
+
+#family {
+  width: 600px;
+  margin: 30px auto;
+  display: block;
+  margin-left: 20%;
+}
